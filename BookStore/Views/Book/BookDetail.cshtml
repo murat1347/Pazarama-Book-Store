@@ -1,0 +1,28 @@
+﻿@model List<Book>
+@{
+    ViewData["Title"] = "BookDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>BookDetail</h1>
+
+@foreach (var x in Model)
+{
+    <table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>PRICE</th>
+        <th>STOCK</th>
+    </tr>
+    
+    <tr>
+        <th>@x.Id</th>
+        <th>@x.Name</th>>
+        <th>@x.Price</th>>
+        <th>@x.Stock</th>>
+            
+            
+    </tr>
+    </table>
+}

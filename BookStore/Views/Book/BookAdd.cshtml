@@ -1,0 +1,31 @@
+﻿@model BookStore.Models.BookAddModel
+@{
+    ViewData["Title"] = "BookAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<
+<h1>FoodAdd</h1>
+@using (Html.BeginForm("BookAdd", "Book", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.LabelFor(x=>x.Name)
+    @Html.TextBoxFor(x=>x.Name,new {@class="form-control"})
+    <br />
+    @Html.LabelFor(x=>x.Price)
+    @Html.TextBoxFor(x=>x.Price,new {@class="form-control"})
+    <br />
+    @Html.LabelFor(x=>x.Stock)
+    @Html.TextBoxFor(x=>x.Stock,new {@class="form-control"})
+    <br />
+    @Html.LabelFor(x=>x.Description)
+    @Html.TextBoxFor(x=>x.Description,new {@class="form-control"})
+    <br />
+    @Html.LabelFor(x=>x.ImageUrl)
+   // @Html.TextBoxFor(x=>x.ImageUrl,new {@class="form-control"})
+    <input type="file" name="ImageUrl"/>
+    
+    <br />
+    @Html.Label("Category")
+    @Html.DropDownListFor(x=>x.CategoryId,(List<SelectListItem>)ViewBag.cat,new {@class="form-control"})
+    <br />
+    <button class="btn btn-success">Submit</button>
+}

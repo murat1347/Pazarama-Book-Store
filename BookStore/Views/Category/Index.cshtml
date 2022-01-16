@@ -1,0 +1,37 @@
+﻿@using BookStore.Models;
+@model List<Category>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Category List</h1>
+<br/>
+@using (Html.BeginForm())
+{
+
+    <p>
+        FoodName: @Html.TextBox("p")
+        <input type="submit" value="Find"/>
+    </p>
+}
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>CATEGORY NAME</th>
+        <th>Status</th>
+        <th>DELETE</th>
+        <th>UPDATE</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <th>@x.ID</th>
+            <th>@x.CategoryName</th>
+            <th>@x.Status</th>
+            <th><a href="/Category/CategoryDelete/@x.ID" class="btn btn-danger">DELETE</a></th>
+            <th><a href="/Category/CategoryGet/@x.ID" class="btn btn-info">UPDATE</a></th>
+        </tr>
+    }
+</table>
+<a href="/Category/CategoryAdd" class="btn btn-success">NEW CATEGORY</a>

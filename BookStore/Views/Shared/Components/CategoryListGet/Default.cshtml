@@ -1,0 +1,10 @@
+﻿@model IEnumerable<BookStore.Models.Category>
+
+<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+    <ul class="nav navbar-nav nav_1">
+        @foreach (var item in Model)
+        {
+            <li><a href="/Category/CategoryDetails/@item.ID">@item.CategoryName</a></li>
+        }
+    </ul>
+</div>

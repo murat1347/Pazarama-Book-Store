@@ -1,0 +1,39 @@
+﻿@using BookStore.Models;
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@model PagedList.IPagedList<Book>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Book List</h1>
+<br/>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>BOOK NAME</th>
+        <th>PRICE</th>
+        <th>STOCK</th>
+        <th>Category NAME</th>
+        <th>DELETE</th>
+        <th>UPDATE</th>
+        <th>DETAIL</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <th>@x.Id</th>
+            <th>@x.Name</th>
+            <th>@x.Price</th>
+            <th>@x.Stock</th>
+            <th>@x.Category.CategoryName</th>
+            <th><a href="/book/bookdelete/@x.Id" class="btn btn-danger">DELETE</a></th>
+            <th><a href="/book/bookget/@x.Id" class="btn btn-info">UPDATE</a></th>
+            <th><a href="/book/bookdetail/@x.Id" class="btn btn-warning">INFO</a></th>
+         
+        </tr>
+    }
+</table>
+
+<a href="/book/bookadd/" class="btn btn-success">NEW BOOK</a>

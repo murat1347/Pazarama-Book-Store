@@ -1,0 +1,7 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h3>Hot Offers</h3>
+@await Component.InvokeAsync("BookListByCategory", new{id = ViewBag.id})
